@@ -1,10 +1,10 @@
-
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.dgroups import simple_key_binder
 from libqtile import extension
+
 
 # dracula color scheme
 theme_background = "#282a36"
@@ -171,12 +171,10 @@ screens = [
                              foreground=theme_orange, ),
                 widget.Spacer(length=5),
                 widget.KeyboardLayout(
-                    configured_keyboards=['us', 'mm'],
-                    display_map={'us': '🇺🇸', 'mm': '🇲🇲'},
+                    configured_keyboards=['us', ],
+                    display_map={'us': '🇺🇸',  },
                 ),
                 widget.Spacer(length=5),
-
-
             ],
             24,
             border_width=[2, 0, 2, 0],
@@ -219,3 +217,4 @@ reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None
 wmname = "Gideon"
+
