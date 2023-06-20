@@ -21,7 +21,7 @@ theme_yellow = "#f1fa8c"
 
 # applications
 mod = "mod4"
-terminal = 'kitty'
+terminal = 'alacritty'
 
 # keybindings
 keys = [
