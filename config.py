@@ -25,10 +25,10 @@ terminal = 'alacritty'
 
 # keybindings
 keys = [
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "y", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "o", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "u", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "i", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(),
         desc="Move window focus to other window"),
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
@@ -62,6 +62,10 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen",),
     Key([mod], 'd', lazy.run_extension(extension.DmenuRun(
         dmenu_prompt="🧛",
+        fontsize=12,
+        background=theme_background,
+        selected_foreground=theme_cyan,
+        selected_background='#222',
         dmenu_font="Andika-8",
     ))),
     # set hide/unhide widgets with mod+shift+f
@@ -74,7 +78,6 @@ groups = [
     Group("2"),
     Group("3"),
     Group("4"),
-    Group("5"),
 ]
 
 keys.extend([
@@ -83,7 +86,7 @@ keys.extend([
 ])
 keys.extend([
     Key([mod], '2', lazy.group['2'].toscreen(),
-        desc="Switch to group {}".format('code'))
+        desc="Switch to group {}".format('2'))
 ])
 keys.extend([
     Key([mod], '3', lazy.group['3'].toscreen(),
@@ -92,10 +95,6 @@ keys.extend([
 keys.extend([
     Key([mod], '4', lazy.group['4'].toscreen(),
         desc="Switch to group {}".format('4'))
-])
-keys.extend([
-    Key([mod], '5', lazy.group['5'].toscreen(),
-        desc="Switch to group {}".format('5'))
 ])
 
 # layouts
@@ -153,8 +152,6 @@ screens = [
                 # widget.Net(format='{down} ↓↑ {up}', foreground=theme_green),
                 widget.NetGraph(type='line', line_width=1, border_width=0,
                                 theme_foreground=theme_current_line, graph_color=theme_pink, samples=50),
-                widget.CheckUpdates(
-                    distro='Arch', colour_have_updates=theme_green,),
                 widget.Spacer(length=5),
                 widget.Volume(foreground=theme_yellow,
                               fmt='{}'),
